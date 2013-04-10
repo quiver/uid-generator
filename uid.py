@@ -18,9 +18,13 @@ class UIDGenerator(object):
         -- http://redis.io/commands/eval
         local counter = redis.call('incr', 'random:counter')
         local result = ''
-        local str = '1234'
-        for c in str:gmatch'.' do
-            result = result .. redis.call('lindex', 'random:p' .. c, counter % 36)
+        local tbl = {}
+        tbl['1'] = 3793
+        tbl['2'] = 3797
+        tbl['3'] = 3803
+        tbl['4'] = 3821
+        for k, v in pairs(tbl) do
+            result = result .. redis.call('lindex', 'random:p' .. k, counter % v)
         end
         return result
         '''
