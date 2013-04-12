@@ -5,7 +5,8 @@ Simple 8-character unique identifier generator
 ## Algorithm
 
 1. Make 4 buckets(b1, b2, b3, b4) of 4000 2-character unique keys(eg. 3z, 2d, ...)
-2. For each bucket, select a prime number(p1, p2, p3, p4) around 3800(less than 4000)
+2. For each bucket, select a prime number(p1, p2, p3, p4) around 3800.
+   NOTE : Where does 3800 come from? Number of chars between a-Z0-9 is 62 and 62 ^ 2 = 3844.
 3. Let N be an auto-incremented number.
    For each bucket, pick up a key such that k1 = b1[N mod p1].
 4. Concatenate each key, then you'll get a new unique identifier :

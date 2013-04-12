@@ -39,6 +39,6 @@ class UIDGenerator(object):
     def reset(self):
         self.r.set('random:counter', 0)
         for suffix in '1234':
-            for chars in util.grouper(2, util.get_shuffled_chars()):
+            for chars in util.get_shuffled_chars():
                 self.r.lpush('random:p%s'%suffix, ''.join(chars))
 

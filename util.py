@@ -6,7 +6,8 @@ import string
 
 def get_shuffled_chars():
     "shuffle characters consisted of lower letters and digits"
-    base = list((string.ascii_lowercase + string.digits) * 2)
+    chars = string.ascii_letters + string.digits
+    base = [(c1, c2) for c2 in chars for c1 in chars]
     random.shuffle(base)
     return base
 
